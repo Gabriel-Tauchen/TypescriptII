@@ -145,12 +145,26 @@
 // sts.jogadores.push(new Jogador("Germán Cano"));
 // console.log(sts.jogadores[0].nome);
 
-class Capitulo {
-    constructor(public titulo:string){}
+// class Capitulo {
+//     constructor(public titulo:string){}
+// }
+// class Livro {
+//     constructor(public capitulo:Capitulo[]=[]) {}
+// }
+// const meuLivro = new Livro();
+// meuLivro.capitulo.push(new Capitulo("Introdução"));
+// console.log(meuLivro.capitulo[0].titulo);
+
+//COMPOSIÇÃO
+
+class Motor {
+    constructor(public potencia : number) {}
+    ligar(){console.log('ligado')}
 }
-class Livro {
-    constructor(public capitulo:Capitulo[]=[]) {}
+class Carro {
+    constructor(public modelo : String,
+    public motor : Motor = new Motor(1.0)) {}
 }
-const meuLivro = new Livro();
-meuLivro.capitulo.push(new Capitulo("Introdução"));
-console.log(meuLivro.capitulo[0].titulo);
+const c = new Carro("polo");
+console.log(c.modelo);
+console.log(c.motor.potencia);

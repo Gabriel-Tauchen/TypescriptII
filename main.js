@@ -122,19 +122,31 @@
 // const sts = new Time();
 // sts.jogadores.push(new Jogador("Germán Cano"));
 // console.log(sts.jogadores[0].nome);
-var Capitulo = /** @class */ (function () {
-    function Capitulo(titulo) {
-        this.titulo = titulo;
+// class Capitulo {
+//     constructor(public titulo:string){}
+// }
+// class Livro {
+//     constructor(public capitulo:Capitulo[]=[]) {}
+// }
+// const meuLivro = new Livro();
+// meuLivro.capitulo.push(new Capitulo("Introdução"));
+// console.log(meuLivro.capitulo[0].titulo);
+//COMPOSIÇÃO
+var Motor = /** @class */ (function () {
+    function Motor(potencia) {
+        this.potencia = potencia;
     }
-    return Capitulo;
+    Motor.prototype.ligar = function () { console.log('ligado'); };
+    return Motor;
 }());
-var Livro = /** @class */ (function () {
-    function Livro(capitulo) {
-        if (capitulo === void 0) { capitulo = []; }
-        this.capitulo = capitulo;
+var Carro = /** @class */ (function () {
+    function Carro(modelo, motor) {
+        if (motor === void 0) { motor = new Motor(1.0); }
+        this.modelo = modelo;
+        this.motor = motor;
     }
-    return Livro;
+    return Carro;
 }());
-var meuLivro = new Livro();
-meuLivro.capitulo.push(new Capitulo("Introdução"));
-console.log(meuLivro.capitulo[0].titulo);
+var c = new Carro("polo");
+console.log(c.modelo);
+console.log(c.motor.potencia);
