@@ -100,36 +100,57 @@
 
 //ASSOCIAÇÃO
 
-class Aluno {
-    nome: string;
-    curso: Curso | null;
-    constructor(nome:string){
-        this.nome = nome;
-        this.curso = null
-    }
-    //equivalente a isso:
-    //constructor(public nome:string,
-    //public curso: Curso|null = null)
+// class Aluno {
+//     nome: string;
+//     curso: Curso | null;
+//     constructor(nome:string){
+//         this.nome = nome;
+//         this.curso = null
+//     }
+//     //equivalente a isso:
+//     //constructor(public nome:string,
+//     //public curso: Curso|null = null)
+// }
+// class Curso{
+//     sigla: string;
+//     alunos: Aluno[];
+//     constructor(sigla:string){
+//         this.sigla = sigla;
+//         this.alunos = [];
+//     }
+//     //equivalente a isso:
+//     //constructor(public sigla:string,
+//     //public alunos: Aluno[] = [])
+// }
+
+// const ze = new Aluno("José");
+// const maria = new
+// Aluno("Maria");
+// const c = new Curso("ECO");
+// c.alunos.push(ze);
+// c.alunos.push(maria);
+// console.log(c.alunos[0].nome);
+// console.log(c.alunos[1].nome);
+
+//AGREGAÇÃO
+
+// class Jogador{
+//     constructor(public nome:string = nome){}
+// }
+// class Time{
+//     constructor(public jogadores:Jogador[]=[]){}
+// }
+
+// const sts = new Time();
+// sts.jogadores.push(new Jogador("Germán Cano"));
+// console.log(sts.jogadores[0].nome);
+
+class Capitulo {
+    constructor(public titulo:string){}
 }
-class Curso{
-    sigla: string;
-    alunos: Aluno[];
-    constructor(sigla:string){
-        this.sigla = sigla;
-        this.alunos = [];
-    }
-    //equivalente a isso:
-    //constructor(public sigla:string,
-    //public alunos: Aluno[] = [])
+class Livro {
+    constructor(public capitulo:Capitulo[]=[]) {}
 }
-
-const ze = new Aluno("José");
-const maria = new
-Aluno("Maria");
-const c = new Curso("ECO");
-c.alunos.push(ze);
-c.alunos.push(maria);
-console.log(c.alunos[0].nome);
-console.log(c.alunos[1].nome);
-
-
+const meuLivro = new Livro();
+meuLivro.capitulo.push(new Capitulo("Introdução"));
+console.log(meuLivro.capitulo[0].titulo);

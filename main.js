@@ -113,20 +113,28 @@
 // console.log(c.alunos[0].nome);
 // console.log(c.alunos[1].nome);
 //AGREGAÇÃO
-var Jogador = /** @class */ (function () {
-    function Jogador(nome) {
-        if (nome === void 0) { nome = nome; }
-        this.nome = nome;
+// class Jogador{
+//     constructor(public nome:string = nome){}
+// }
+// class Time{
+//     constructor(public jogadores:Jogador[]=[]){}
+// }
+// const sts = new Time();
+// sts.jogadores.push(new Jogador("Germán Cano"));
+// console.log(sts.jogadores[0].nome);
+var Capitulo = /** @class */ (function () {
+    function Capitulo(titulo) {
+        this.titulo = titulo;
     }
-    return Jogador;
+    return Capitulo;
 }());
-var Time = /** @class */ (function () {
-    function Time(jogadores) {
-        if (jogadores === void 0) { jogadores = []; }
-        this.jogadores = jogadores;
+var Livro = /** @class */ (function () {
+    function Livro(capitulo) {
+        if (capitulo === void 0) { capitulo = []; }
+        this.capitulo = capitulo;
     }
-    return Time;
+    return Livro;
 }());
-var sts = new Time();
-sts.jogadores.push(new Jogador("Germán Cano"));
-console.log(sts.jogadores[0].nome);
+var meuLivro = new Livro();
+meuLivro.capitulo.push(new Capitulo("Introdução"));
+console.log(meuLivro.capitulo[0].titulo);
