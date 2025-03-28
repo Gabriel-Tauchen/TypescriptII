@@ -87,13 +87,49 @@
 
 // Propriedade opcional
 
-class Produto {
-    constructor(public nome: string,
-    public preco?: number){}
+// class Produto {
+//     constructor(public nome: string,
+//     public preco?: number){}// o '?' deixa opcional o ? deixa assim: public preco: number | undefined = undefined
+// }
+// const note = new Produto("Notebook", 2500);
+// console.log(note.nome);
+// note.preco=3000;
+// const note1 = new Produto("Notebook 1");
+// console.log(note1.preco);
+// note1.preco=10;
+
+//ASSOCIAÇÃO
+
+class Aluno {
+    nome: string;
+    curso: Curso | null;
+    constructor(nome:string){
+        this.nome = nome;
+        this.curso = null
+    }
+    //equivalente a isso:
+    //constructor(public nome:string,
+    //public curso: Curso|null = null)
 }
-const note = new Produto("Notebook", 2500);
-console.log(note.nome);
-note.preco=3000;
-const note1 = new Produto("Notebook 1");
-console.log(note1.preco);
-note1.preco=10;
+class Curso{
+    sigla: string;
+    alunos: Aluno[];
+    constructor(sigla:string){
+        this.sigla = sigla;
+        this.alunos = [];
+    }
+    //equivalente a isso:
+    //constructor(public sigla:string,
+    //public alunos: Aluno[] = [])
+}
+
+const ze = new Aluno("José");
+const maria = new
+Aluno("Maria");
+const c = new Curso("ECO");
+c.alunos.push(ze);
+c.alunos.push(maria);
+console.log(c.alunos[0].nome);
+console.log(c.alunos[1].nome);
+
+

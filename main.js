@@ -71,16 +71,62 @@
 //     note.preco=3000;//invoca o set
 //     console.log(note.preco);//invoca o get
 // Propriedade opcional
-var Produto = /** @class */ (function () {
-    function Produto(nome, preco) {
+// class Produto {
+//     constructor(public nome: string,
+//     public preco?: number){}// o '?' deixa opcional o ? deixa assim: public preco: number | undefined = undefined
+// }
+// const note = new Produto("Notebook", 2500);
+// console.log(note.nome);
+// note.preco=3000;
+// const note1 = new Produto("Notebook 1");
+// console.log(note1.preco);
+// note1.preco=10;
+//ASSOCIAÇÃO
+// class Aluno {
+//     nome: string;
+//     curso: Curso | null;
+//     constructor(nome:string){
+//         this.nome = nome;
+//         this.curso = null
+//     }
+//     //equivalente a isso:
+//     //constructor(public nome:string,
+//     //public curso: Curso|null = null)
+// }
+// class Curso{
+//     sigla: string;
+//     alunos: Aluno[];
+//     constructor(sigla:string){
+//         this.sigla = sigla;
+//         this.alunos = [];
+//     }
+//     //equivalente a isso:
+//     //constructor(public sigla:string,
+//     //public alunos: Aluno[] = [])
+// }
+// const ze = new Aluno("José");
+// const maria = new
+// Aluno("Maria");
+// const c = new Curso("ECO");
+// c.alunos.push(ze);
+// c.alunos.push(maria);
+// console.log(c.alunos[0].nome);
+// console.log(c.alunos[1].nome);
+//AGREGAÇÃO
+var Jogador = /** @class */ (function () {
+    function Jogador(nome) {
+        if (nome === void 0) { nome = nome; }
         this.nome = nome;
-        this.preco = preco;
     }
-    return Produto;
+    return Jogador;
 }());
-var note = new Produto("Notebook", 2500);
-console.log(note.nome);
-note.preco = 3000;
-var note1 = new Produto("Notebook 1");
-console.log(note1.preco);
-note1.preco = 10;
+var Time = /** @class */ (function () {
+    function Time(jogadores) {
+        if (jogadores === void 0) { jogadores = []; }
+        this.jogadores = jogadores;
+    }
+    return Time;
+}());
+var sts = new Time();
+sts.jogadores.push(new Jogador("Germán Cano"));
+console.log(sts.jogadores[0].nome);
