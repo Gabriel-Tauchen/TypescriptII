@@ -157,14 +157,35 @@
 
 //COMPOSIÇÃO
 
-class Motor {
-    constructor(public potencia : number) {}
-    ligar(){console.log('ligado')}
+// class Motor {
+//     constructor(public potencia : number) {}
+//     ligar(){console.log('ligado')}
+// }
+// class Carro {
+//     constructor(public modelo : String,
+//     public motor : Motor = new Motor(1.0)) {}
+// }
+// const c = new Carro("polo");
+// console.log(c.modelo);
+// console.log(c.motor.potencia);
+
+//DEPENDÊNCIA
+
+class Aluno{
+    constructor(public nome:string){}
 }
-class Carro {
-    constructor(public modelo : String,
-    public motor : Motor = new Motor(1.0)) {}
+class Avaliacao{
+    constructor(public aluno:Aluno,
+                public nota?:number){}
 }
-const c = new Carro("polo");
-console.log(c.modelo);
-console.log(c.motor.potencia);
+
+var ze = new Aluno("José")
+var prova = new Avaliacao(ze, 9);
+console.log(`${prova.aluno.nome}
+tirou ${prova.nota}`);
+
+var maria = new Aluno("Maria")
+var prova2 = new Avaliacao(maria);
+prova2.nota = 7;
+console.log(`${prova2.aluno.nome}
+tirou ${prova2.nota}`);

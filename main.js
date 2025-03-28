@@ -132,21 +132,35 @@
 // meuLivro.capitulo.push(new Capitulo("Introdução"));
 // console.log(meuLivro.capitulo[0].titulo);
 //COMPOSIÇÃO
-var Motor = /** @class */ (function () {
-    function Motor(potencia) {
-        this.potencia = potencia;
+// class Motor {
+//     constructor(public potencia : number) {}
+//     ligar(){console.log('ligado')}
+// }
+// class Carro {
+//     constructor(public modelo : String,
+//     public motor : Motor = new Motor(1.0)) {}
+// }
+// const c = new Carro("polo");
+// console.log(c.modelo);
+// console.log(c.motor.potencia);
+//DEPENDÊNCIA
+var Aluno = /** @class */ (function () {
+    function Aluno(nome) {
+        this.nome = nome;
     }
-    Motor.prototype.ligar = function () { console.log('ligado'); };
-    return Motor;
+    return Aluno;
 }());
-var Carro = /** @class */ (function () {
-    function Carro(modelo, motor) {
-        if (motor === void 0) { motor = new Motor(1.0); }
-        this.modelo = modelo;
-        this.motor = motor;
+var Avaliacao = /** @class */ (function () {
+    function Avaliacao(aluno, nota) {
+        this.aluno = aluno;
+        this.nota = nota;
     }
-    return Carro;
+    return Avaliacao;
 }());
-var c = new Carro("polo");
-console.log(c.modelo);
-console.log(c.motor.potencia);
+var ze = new Aluno("José");
+var prova = new Avaliacao(ze, 9);
+console.log("".concat(prova.aluno.nome, "\ntirou ").concat(prova.nota));
+var maria = new Aluno("Maria");
+var prova2 = new Avaliacao(maria);
+prova2.nota = 7;
+console.log("".concat(prova2.aluno.nome, "\ntirou ").concat(prova2.nota));
